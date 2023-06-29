@@ -1,0 +1,30 @@
+{
+  "name": "infnet_backend_nodejs_sql",
+  "version": "1.0.0",
+  "description": "Trabalho final da disciplina de NodeJS/SQL do curso MIT em  Desenvolvimento Fullstack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TallesSC/Infnet_Backend_NodeJS_SQL.git"
+  },
+  "author": "Talles Siqueira Ceolin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TallesSC/Infnet_Backend_NodeJS_SQL/issues"
+  },
+  "homepage": "https://github.com/TallesSC/Infnet_Backend_NodeJS_SQL#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "jsonwebtoken": "^9.0.0",
+    "mysql2": "^3.4.2",
+    "nodemon": "^2.0.22",
+    "sequelize": "^6.32.0"
+  }
+}
