@@ -9,6 +9,11 @@ const Subscription = db.define('Subscription', {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
+  },
+  cancelledAt: {
+    type: DataTypes.DATE,
+    allowNull: true,
+    default: null
   }
 });
 

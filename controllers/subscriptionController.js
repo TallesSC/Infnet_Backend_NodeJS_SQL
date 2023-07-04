@@ -27,6 +27,10 @@ const addSubscription = async (req, res) => {
       return res.status(404).json({message: 'Course not found'});
     }
 
+    if (!course.isAvailable) {
+      return res.status(404).json({message: 'Course not available'});
+    }
+
     const subscription = await Subscription.create({UserId, CourseId});
     res.json(subscription);
   } catch (error) {
@@ -35,4 +39,24 @@ const addSubscription = async (req, res) => {
   }
 };
 
-module.exports = {getSubscriptions, addSubscription};
+const removeSubscription = async (req, res) => {
+  try {
+    const {id} = req.body;
+
+    const subscription = await Subscription.findByPk(id);
+
+    if (!subscription) {
+      return res.status(404).json({message: 'Subscription not found'});
+    }
+
+    subscription.cancelledAt = new Date().toISOString().slice(0, 19).replace('T', ' ');
+    await subscription.save();
+
+    res.json(subscription);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Server Error');
+  }
+};
+
+module.exports = {getSubscriptions, addSubscription, removeSubscription};

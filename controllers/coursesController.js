@@ -2,7 +2,11 @@ const Course = require('../models/Course');
 
 const getCourses = async (req, res) => {
   try {
-    const course = await Course.findAll();
+    const course = await Course.findAll({
+      where: {
+        isAvailable: true
+      }
+    });
     res.json(course);
   } catch (error) {
     console.error(error);
